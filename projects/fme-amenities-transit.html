@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amenities & Transit FME Workflow — Matthew Ruffolo</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">Matthew Ruffolo</a>
+    <ul>
+      <li><a class="navlink active" href="../index.html">Projects</a></li>
+      <li><a class="navlink" href="../resume.html">Resume &amp; Skills</a></li>
+      <li><a class="navlink" href="../about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="back" href="../index.html">&larr; All projects</a>
+</div>
+
+<div class="wrap proj-head">
+  <p class="eyebrow">Automation &middot; FME Workflow</p>
+  <h1>Amenities &amp; Transit Extraction for Brochure Maps</h1>
+  <p class="lede">An automated FME workflow that turns a site address into a design-ready, layered KMZ of nearby amenities and transit — replacing a manual build for every listing.</p>
+  <div class="tagrow">
+    <span class="label">Tools</span>
+    <span class="pill tool">FME Workbench</span>
+    <span class="pill tool">ChainXY</span>
+    <span class="pill tool">ArcGIS Pro</span>
+    <span class="pill tool">Excel</span>
+    <span class="pill tool">Google Earth</span>
+  </div>
+  <div class="tagrow">
+    <span class="label">Skills</span>
+    <span class="pill skill">Workflow automation</span>
+    <span class="pill skill">Geocoding</span>
+    <span class="pill skill">Buffers &amp; spatial joins</span>
+    <span class="pill skill">Attribute management</span>
+    <span class="pill skill">KML/KMZ styling</span>
+  </div>
+  <div class="meta">
+    <div><span>Type</span><strong>Workflow automation</strong></div>
+    <div><span>Geography</span><strong>Greater Toronto Area</strong></div>
+    <div><span>Output</span><strong>Layered KMZ / KML</strong></div>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap step-block">
+    <h2>Objective</h2>
+    <p>Amenities maps are a standard element of CBRE marketing brochures, and each one was being assembled by hand: find the site, pull nearby retail and services, add transit lines, export, then hand off to the Creative &amp; Design team for styling. The goal was to <strong>automate everything up to the design step</strong> — one workflow that takes a site address and returns a clean, editable KMZ.</p>
+
+    <h2>Data</h2>
+    <ul>
+      <li><strong>Site list</strong> — Excel input with property name, address, latitude and longitude.</li>
+      <li><strong>ChainXY</strong> — retail and amenity point data, filtered to major categories.</li>
+      <li><strong>Transit</strong> — route and station shapefiles for the relevant transit agencies.</li>
+    </ul>
+
+    <h2>Method</h2>
+    <ol>
+      <li><strong>Input data</strong> — Excel reader for the site list, plus readers for the ChainXY amenity set and transit shapefiles.</li>
+      <li><strong>Reprojection &amp; data preparation</strong> — brought all sources onto a common projection and standardised the attribute schema so downstream joins wouldn't break on field mismatches.</li>
+      <li><strong>Site buffering</strong> — generated a catchment around each site to define "nearby."</li>
+      <li><strong>Amenity selection</strong> — clipped amenities to the catchment and filtered to the major categories brokers actually want on a brochure, rather than every point in the dataset.</li>
+      <li><strong>Transit extraction</strong> — selected the route segments and stations intersecting the catchment.</li>
+      <li><strong>Categorisation &amp; styling</strong> — grouped amenities into display categories and wrote style attributes so the output opens already organised into folders.</li>
+      <li><strong>KMZ output</strong> — exported a single layered KMZ per site, structured so the design team can restyle without rebuilding anything.</li>
+    </ol>
+    <p><em>Insert the FME canvas screenshot here — bookmarked by stage.</em></p>
+
+<h2>Live output</h2>
+    <div class="embed">
+      <!-- Replace this placeholder block with your iframe:
+           <iframe src="PASTE_ARCGIS_ONLINE_URL" loading="lazy" allowfullscreen></iframe> -->
+      <div class="placeholder">
+        <strong>FME workflow — canvas screenshot or sample KMZ preview</strong>
+        <span>Paste your ArcGIS Online share URL into the iframe in this file.</span>
+        <code>&lt;iframe src="…" loading="lazy"&gt;</code>
+      </div>
+    </div>
+    <p class="embed-note">Static output. Link a sample KMZ download or an embedded Google Earth view here. &nbsp;·&nbsp; <a href="#">Open in a new tab &rarr;</a></p>
+
+    <h2>Outcome &amp; takeaway</h2>
+    <p>What was a manual per-listing build is now a repeatable run: change the input row, re-run, get a consistent output. The bigger win is consistency — every brochure map now uses the same categories and the same catchment logic, so outputs don't vary by whoever built them. Adding a new city or a new amenity category is a reader change, not a rebuild.</p>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+    <span>Matthew Ruffolo — Location Intelligence, CBRE Canada</span>
+    <span><a href="mailto:matthew.ruffolo@cbre.com">matthew.ruffolo@cbre.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
