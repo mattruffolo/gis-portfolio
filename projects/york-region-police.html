@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>York Region Police Coverage — Matthew Ruffolo</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">Matthew Ruffolo<span>.</span></a>
+    <ul>
+      <li><a class="navlink" href="../index.html">Home</a></li>
+      <li><a class="navlink active" href="../projects.html">Projects</a></li>
+      <li><a class="navlink" href="../about.html">About</a></li>
+      <li><a class="navlink" href="../resume.html">Resume &amp; Skills</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="back" href="../projects.html">&larr; All projects</a>
+</div>
+
+<div class="wrap proj-head">
+  <p class="eyebrow">Public Sector · Web App</p>
+  <h1>York Region Police Emergency Response Coverage</h1>
+  <p class="lede">A drive-time coverage model identifying where response targets aren't met across York Region, quantified by population and ranked by municipality.</p>
+  <div class="tagrow">
+    <span class="label">Tools</span>
+    <span class="pill tool">ArcGIS Pro</span>
+    <span class="pill tool">ArcGIS Online</span>
+    <span class="pill tool">Experience Builder</span>
+    <span class="pill tool">FME Workbench</span>
+  </div>
+  <div class="tagrow">
+    <span class="label">Skills</span>
+    <span class="pill skill">Network analysis</span>
+    <span class="pill skill">Service-area modelling</span>
+    <span class="pill skill">Census DA processing</span>
+    <span class="pill skill">Spatial joins</span>
+    <span class="pill skill">Dashboard design</span>
+  </div>
+  <div class="meta">
+    <div><span>Type</span><strong>Coverage analysis</strong></div>
+    <div><span>Geography</span><strong>York Region, Ontario</strong></div>
+    <div><span>Output</span><strong>Experience Builder web app</strong></div>
+    <div><span>Status</span><strong>Complete</strong></div>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap step-block">
+    <h2>Objective</h2>
+    <p>York Regional Police operate from a fixed set of divisional stations across a region that mixes dense urban centres with large low-density areas. The question this project answers: <strong>which parts of the region fall outside target drive-time coverage, how many residents live there, and which municipalities are most exposed?</strong></p>
+
+    <h2>Data</h2>
+    <ul>
+      <li><strong>Station locations</strong> — York Regional Police divisional and district facilities, geocoded.</li>
+      <li><strong>Road network</strong> — routing network used to generate drive-time service areas.</li>
+      <li><strong>Dissemination Areas</strong> — Statistics Canada DAs with population counts, clipped to York Region.</li>
+      <li><strong>Municipal boundaries</strong> — Census Subdivisions for the nine municipalities in the region.</li>
+    </ul>
+
+    <h2>Method</h2>
+    <ol>
+      <li><strong>Input preparation</strong> — loaded station points, DA polygons, and municipal boundaries; reprojected everything to a common coordinate system so area and distance calculations were valid.</li>
+      <li><strong>DA centroid creation</strong> — converted DA polygons to representative points so each area could be assigned a single, unambiguous coverage result.</li>
+      <li><strong>Service-area generation</strong> — built drive-time polygons around each station at the target response thresholds.</li>
+      <li><strong>Coverage assignment</strong> — spatially joined DA centroids to the service-area bands, flagging each DA as covered or outside coverage.</li>
+      <li><strong>Regional statistics</strong> — aggregated population by coverage band to quantify how many residents sit outside target.</li>
+      <li><strong>Municipality rankings</strong> — rolled coverage up to the municipal level and ranked municipalities by share of population uncovered.</li>
+      <li><strong>Publish</strong> — pushed the DA coverage output to ArcGIS Online and built the front end in Experience Builder.</li>
+    </ol>
+    <p><em>Insert a screenshot of the FME canvas or the model here — the bookmark names double as the method summary.</em></p>
+
+<h2>Live output</h2>
+    <div class="embed">
+      <!-- Replace this placeholder block with your iframe:
+           <iframe src="PASTE_ARCGIS_ONLINE_URL" loading="lazy" allowfullscreen></iframe> -->
+      <div class="placeholder">
+        <strong>York Region Police Coverage — Experience Builder app</strong>
+        <span>Paste your ArcGIS Online share URL into the iframe in this file.</span>
+        <code>&lt;iframe src="…" loading="lazy"&gt;</code>
+      </div>
+    </div>
+    <p class="embed-note">Best viewed full screen. Use the layer toggle to switch between coverage bands and population density. &nbsp;·&nbsp; <a href="#">Open in a new tab &rarr;</a></p>
+
+    <h2>Outcome &amp; takeaway</h2>
+    <p>The app makes gaps visible at a glance and quantifies them in population terms rather than just area — which is the framing that matters for a service decision. The same structure transfers directly to commercial work: swap stations for store locations and the model becomes a trade-area coverage and white-space analysis.</p>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;">
+    <span>Matthew Ruffolo — Location Intelligence, CBRE Canada</span>
+    <span><a href="mailto:matthew.ruffolo@cbre.com">matthew.ruffolo@cbre.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
