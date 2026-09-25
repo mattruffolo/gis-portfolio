@@ -54,24 +54,12 @@
     <h2>Objective</h2>
     <p>York Regional Police operate from a fixed set of divisional stations across a region that mixes dense urban centres with large low-density areas. The question this project answers: <strong>which parts of the region fall outside target drive-time coverage, how many residents live there, and which municipalities are most exposed?</strong></p>
 
-    <h2>Data</h2>
+    <h2>Data & Sources</h2>
     <ul>
-      <li><strong>Station locations</strong> — York Regional Police divisional and district facilities, geocoded.</li>
-      <li><strong>Isochrones</strong> — routing network used to generate drive-time service areas.</li>
-      <li><strong>Dissemination Areas</strong> — Statistics Canada DAs with population counts, clipped to York Region.</li>
-      <li><strong>Municipal boundaries</strong> — Census Subdivisions for the nine municipalities in the region.</li>
+      <li><strong>York Region Open Data</strong> — Police stations and municipal boundaries</li>
+      <li><strong>ArcGIS Pro</strong> — Isochrone creation and dissemniation area demographic enrichment.</li>
+      <li><strong>Streamlit</strong> — Hosts and displays the interactive map.</li>
     </ul>
-
-    <h2>Method</h2>
-    <ol>
-      <li><strong>Input preparation</strong> — loaded station points, DA polygons, and municipal boundaries; reprojected everything to a common coordinate system so area and distance calculations were valid.</li>
-      <li><strong>DA centroid creation</strong> — converted DA polygons to representative points so each area could be assigned a single, unambiguous coverage result.</li>
-      <li><strong>Service-area generation</strong> — built drive-time polygons around each station at the target response thresholds.</li>
-      <li><strong>Coverage assignment</strong> — spatially joined DA centroids to the service-area bands, flagging each DA as covered or outside coverage.</li>
-      <li><strong>Regional statistics</strong> — aggregated population by coverage band to quantify how many residents sit outside target.</li>
-      <li><strong>Municipality rankings</strong> — rolled coverage up to the municipal level and ranked municipalities by share of population uncovered.</li>
-      <li><strong>Publish</strong> — pushed the DA coverage output to ArcGIS Online and built the front end in Experience Builder.</li>
-    </ol>
 
   <p class="embed-note">
   Click the image to launch the live application.
@@ -99,7 +87,7 @@
 <footer class="site">
   <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
     <span>Matthew Ruffolo — Location Intelligence, CBRE Canada</span>
-    <span><a href="mailto:matthew.ruffolo@cbre.com">mattruffolo99@gmail.com</a></span>
+    <span><a href="mattruffolo99@gmail.com">mattruffolo99@gmail.com</a></span>
   </div>
 </footer>
 
