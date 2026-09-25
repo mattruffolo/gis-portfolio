@@ -325,7 +325,8 @@ footer.site a { color: var(--ink-soft); }
 }
 .feature-image {
     width: 120%;
-    margin-left: -10%;
+    margin: 0 auto;
+    transform: translateX(-8%);
 }
 
 .feature-image img {
