@@ -324,10 +324,7 @@ footer.site a { color: var(--ink-soft); }
   .embed iframe { height: 440px; }
 }
 .feature-image {
-    width: 130%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 30px 0;
 }
 
 .feature-image img {
