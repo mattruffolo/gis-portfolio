@@ -324,14 +324,16 @@ footer.site a { color: var(--ink-soft); }
   .embed iframe { height: 440px; }
 }
 .feature-image {
-    width: 120%;
-    margin: 0 auto;
-    transform: translateX(-8%);
+    width: 130%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .feature-image img {
     width: 100%;
     display: block;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid #e3e8ee;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
