@@ -324,14 +324,12 @@ footer.site a { color: var(--ink-soft); }
   .embed iframe { height: 440px; }
 }
 .feature-image {
-    margin: 30px auto;
     text-align: center;
 }
 
 .feature-image img {
     width: 60% !important;
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
     border-radius: 12px;
     border: 1px solid #e3e8ee;
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
