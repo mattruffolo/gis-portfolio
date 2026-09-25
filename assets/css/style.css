@@ -323,3 +323,14 @@ footer.site a { color: var(--ink-soft); }
   .nav { height: auto; padding: 12px 0; flex-direction: column; gap: 10px; }
   .embed iframe { height: 440px; }
 }
+.feature-image {
+    width: 120%;
+    margin-left: -10%;
+}
+
+.feature-image img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid #e3e8ee;
+}
