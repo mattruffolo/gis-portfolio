@@ -337,6 +337,6 @@ footer.site a { color: var(--ink-soft); }
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-.card { grid-template-columns: 1fr; }
+.card { grid-template-columns: 1fr; max-width: 780px; margin: 0 auto; }
 .card .body { padding: 24px 28px; }
 
