@@ -74,14 +74,14 @@
 
   <button type="button" onclick="prevImage()">← Previous</button>
 
-  <span id="step-counter" style="margin:0 16px;">Step 1 of 4</span>
+  <span id="step-counter" style="margin:0 16px;">Step 1 of 3</span>
 
   <button type="button" onclick="nextImage()">Next →</button>
 
 </div>
 
 <script>
-  const workflowSlides = [
+const workflowSlides = [
   {
     image: "../assets/step1.png",
     caption: "Step 1: Input Data"
@@ -96,31 +96,34 @@
   }
 ];
 
-  let currentSlide = 0;
+let currentSlide = 0;
 
-  function showSlide() {
-    document.getElementById("workflow-image").src =
-      workflowSlides[currentSlide].image;
+function updateSlide() {
+  document.getElementById("workflow-image").src =
+    workflowSlides[currentSlide].image;
 
-    document.getElementById("workflow-caption").textContent =
-      workflowSlides[currentSlide].caption;
+  document.getElementById("workflow-caption").textContent =
+    workflowSlides[currentSlide].caption;
 
-    document.getElementById("step-counter").textContent =
-      "Step " + (currentSlide + 1) + " of " + workflowSlides.length;
+  document.getElementById("step-counter").textContent =
+    `Step ${currentSlide + 1} of ${workflowSlides.length}`;
+}
+
+function nextImage() {
+  currentSlide++;
+  if (currentSlide >= workflowSlides.length) {
+    currentSlide = 0;
   }
+  updateSlide();
+}
 
-  function nextImage() {
-    currentSlide = (currentSlide + 1) % workflowSlides.length;
-    showSlide();
+function prevImage() {
+  currentSlide--;
+  if (currentSlide < 0) {
+    currentSlide = workflowSlides.length - 1;
   }
-
-  function prevImage() {
-    currentSlide =
-      (currentSlide - 1 + workflowSlides.length) %
-      workflowSlides.length;
-
-    showSlide();
-  }
+  updateSlide();
+}
 </script>
 
     <h2>Outcome &amp; takeaway</h2>
