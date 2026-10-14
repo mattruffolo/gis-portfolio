@@ -59,40 +59,52 @@
       <li><strong>Open Data Portals</strong> — Transit route shapefiles.</li>
     </ul>
 
-    <h2>Workflow Overview</h2>
+<h2>Workflow Overview</h2>
 
 <div style="text-align:center;">
 
   <img id="workflow-image"
        src="../assets/step1.png"
        alt="FME Workflow"
-       style="width:100%; display:block; margin:0 auto 25px;">
+       onclick="openLightbox()"
+       style="width:110%; display:block; margin:0 auto 25px; cursor:pointer;">
 
-  <p id="workflow-caption" style="font-style:italic; font-size:1rem;">
+  <p id="workflow-caption" style="font-style:italic;">
     Step 1: Input Data
   </p>
 
-  <button type="button" onclick="prevImage()">← Previous</button>
+  <button onclick="prevImage()">← Previous</button>
 
-  <span id="step-counter" style="margin:0 16px;">Step 1 of 3</span>
+  <span id="step-counter" style="margin:0 16px;">
+    Step 1 of 3
+  </span>
 
-<button type="button" onclick="nextImage()">Next →</button>
+  <button onclick="nextImage()">Next →</button>
 
+</div>
+
+<div id="lightbox"
+     onclick="closeLightbox()"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999;">
+
+  <img id="lightbox-image"
+       src=""
+       style="max-width:95%; max-height:95%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
 </div>
 
 <script>
 const workflowSlides = [
   {
     image: "../assets/step1.png",
-    caption: "Step 1: Data Input, Reprojection, and Buffering"
+    caption: "Step 1: Input Data"
   },
   {
     image: "../assets/step2.png",
-    caption: "Step 2: Amenity and Transit Processing"
+    caption: "Step 2: Spatial Processing"
   },
   {
     image: "../assets/step3.png",
-    caption: "Step 3: KMZ Styling and Output"
+    caption: "Step 3: KMZ Output"
   }
 ];
 
@@ -110,19 +122,24 @@ function updateSlide() {
 }
 
 function nextImage() {
-  currentSlide++;
-  if (currentSlide >= workflowSlides.length) {
-    currentSlide = 0;
-  }
+  currentSlide = (currentSlide + 1) % workflowSlides.length;
   updateSlide();
 }
 
 function prevImage() {
-  currentSlide--;
-  if (currentSlide < 0) {
-    currentSlide = workflowSlides.length - 1;
-  }
+  currentSlide = (currentSlide - 1 + workflowSlides.length) %
+                 workflowSlides.length;
   updateSlide();
+}
+
+function openLightbox() {
+  document.getElementById("lightbox").style.display = "block";
+  document.getElementById("lightbox-image").src =
+    document.getElementById("workflow-image").src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
 }
 </script>
 
