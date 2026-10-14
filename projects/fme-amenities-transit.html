@@ -60,7 +60,10 @@
     </ul>
 
     Workflow Overview
-    <img id="workflow-image" src="../assets/step1.png" alt="FME Workflow">
+    <img id="workflow-image"
+     src="../assets/step1.png"
+     alt="FME Workflow"
+     style="width:70%; display:block; margin:0 auto;">
     <button onclick="prevImage()">← Previous</button>
 
     <span id="step-counter">Step 1 of 4</span>
@@ -82,3 +85,41 @@
 
 </body>
 </html>
+<img id="workflow-image"
+     src="../assets/step1.png"
+     alt="FME Workflow"
+     style="width:70%; display:block; margin:0 auto;">
+
+<button onclick="prevImage()">← Previous</button>
+
+<span id="step-counter">Step 1 of 4</span>
+
+<button onclick="nextImage()">Next →</button>
+
+<script>
+const images = [
+  "../assets/step1.png",
+  "../assets/step2.png",
+  "../assets/step3.png"
+];
+
+let currentImage = 0;
+
+function updateImage() {
+  document.getElementById("workflow-image").src = images[currentImage];
+  document.getElementById("step-counter").textContent =
+    `Step ${currentImage + 1} of 4`;
+}
+
+function nextImage() {
+  currentImage = (currentImage + 1) % images.length;
+  updateImage();
+}
+
+function prevImage() {
+  currentImage = (currentImage - 1 + images.length) % images.length;
+  updateImage();
+}
+</script>
+
+</body>
