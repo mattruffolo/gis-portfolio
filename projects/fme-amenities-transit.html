@@ -76,10 +76,7 @@
 
   <span id="step-counter" style="margin:0 16px;">Step 1 of 3</span>
 
-  <button type="button"
-onclick="document.getElementById('workflow-image').src='../assets/step2.png'">
-Next →
-</button>
+<button type="button" onclick="nextImage()">Next →</button>
 
 </div>
 
@@ -87,15 +84,15 @@ Next →
 const workflowSlides = [
   {
     image: "../assets/step1.png",
-    caption: "Step 1: Input Data"
+    caption: "Step 1: Data Input, Reprojection, and Buffering"
   },
   {
     image: "../assets/step2.png",
-    caption: "Step 2: Spatial Processing"
+    caption: "Step 2: Amenity and Transit Processing"
   },
   {
     image: "../assets/step3.png",
-    caption: "Step 3: KMZ Output"
+    caption: "Step 3: KMZ Styling and Output"
   }
 ];
 
