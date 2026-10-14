@@ -59,18 +59,73 @@
       <li><strong>Open Data Portals</strong> — Transit route shapefiles.</li>
     </ul>
 
-    Workflow Overview
-    <img id="workflow-image"
-     src="../assets/step1.png"
-     alt="FME Workflow"
-     style="width:70%; display:block; margin:0 auto;">
-    <button onclick="prevImage()">← Previous</button>
+    <h2>Workflow Overview</h2>
 
-    <span id="step-counter">Step 1 of 4</span>
+<div style="text-align:center;">
 
-  <button onclick="document.getElementById('workflow-image').src='../assets/step2.png'">
-  Next →
-</button>
+  <img id="workflow-image"
+       src="../assets/step1.png"
+       alt="FME Workflow"
+       style="width:70%; display:block; margin:0 auto 15px;">
+
+  <p id="workflow-caption" style="font-style:italic; font-size:1rem;">
+    Step 1: Input Data
+  </p>
+
+  <button type="button" onclick="prevImage()">← Previous</button>
+
+  <span id="step-counter" style="margin:0 16px;">Step 1 of 4</span>
+
+  <button type="button" onclick="nextImage()">Next →</button>
+
+</div>
+
+<script>
+  const workflowSlides = [
+    {
+      image: "../assets/step1.png",
+      caption: "Step 1: Input Data"
+    },
+    {
+      image: "../assets/step2.png",
+      caption: "Step 2: Spatial Processing"
+    },
+    {
+      image: "../assets/step3.png",
+      caption: "Step 3: Categorization and Styling"
+    },
+    {
+      image: "../assets/step4.png",
+      caption: "Step 4: Layered KMZ Output"
+    }
+  ];
+
+  let currentSlide = 0;
+
+  function showSlide() {
+    document.getElementById("workflow-image").src =
+      workflowSlides[currentSlide].image;
+
+    document.getElementById("workflow-caption").textContent =
+      workflowSlides[currentSlide].caption;
+
+    document.getElementById("step-counter").textContent =
+      "Step " + (currentSlide + 1) + " of " + workflowSlides.length;
+  }
+
+  function nextImage() {
+    currentSlide = (currentSlide + 1) % workflowSlides.length;
+    showSlide();
+  }
+
+  function prevImage() {
+    currentSlide =
+      (currentSlide - 1 + workflowSlides.length) %
+      workflowSlides.length;
+
+    showSlide();
+  }
+</script>
 
     <h2>Outcome &amp; takeaway</h2>
     <p>What was a manual per-listing build is now a repeatable run: change the input row, re-run, get a consistent output. The bigger win is consistency — every brochure map now uses the same categories and the same catchment logic, so outputs don't vary by whoever built them. Adding a new city or a new amenity category is a reader change, not a rebuild.</p>
